@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<title>COMQ : 시작하기 </title>
+
+
+
+<script type="text/javascript" src="//code.jquery.com/jquery-2.2.3.min.js"></script>
+<script type="text/javascript">
+	
+	function ajaxSubmit() {
+		alert('전송시작');
+		console.log($('#form1').serialize());
+		$.ajax({
+			type: "POST",
+			url: "/diver/app/test/reqTest.jsonp",
+			data: $('#form1').serialize(),
+			dataType: "json", 
+			success: function(data) {
+				console.log(data);
+			}
+		});
+	}
+</script>
+
+</head>
+
+
+<body>
+<form id="form1">
+	id<input type="text" name="id"><br/>
+	pw<input type="text" name="pwd"><br/>
+	NickName<input type="text" name="nickName"><br/>
+
+	<button type="button" onclick="javascript:ajaxSubmit();">전송하기</button>
+</form>
+
+</body>
+
+</html>
